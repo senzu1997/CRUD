@@ -13,49 +13,63 @@ include "./routes/routes.php";
   </head>
   <body>
 </head>
-<body>
-    <div style="margin-top:300px" class="container">
-        <table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Club's name</th>
-      <th scope="col">Club's country</th>
-      <th scope="col">Club's budget</th>
-      <th scope="col">Is it European club?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-      <td></td>
-    </tr>
-    <tr>
-    <th scope="row">4</th>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
 
-    </tr>
-  </tbody>
+<body>
+    <div style="margin-top:100px" class="container">
+<form action="" method="post">
+    <div class="col-7">
+    <div class="mb-3">
+    <label>The name of the club</label>
+    <input type="text" class="form-control" placeholder = "Example : Real Madrid" name = "name"  >
+  </div>
+  <div class="mb-3">
+    <label >The country of the club</label>
+    <input type="text" class="form-control" placeholder = "Example : Spain" name = "country">
+  </div>
+  <div class="mb-3">
+    <label >The budget of the club</label>
+    <input type="number" class="form-control" placeholder = "Example : 1.0"  name="budget">
+  </div>
+  <div class="mb-4">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" name = "isEuropean">
+    <label class="form-check-label" for="exampleCheck1">Is it from Europe?</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+ 
+</form>
+
+
+
+    <div class="col-10">  
+    <table class="table table-dark">
+    <thead>
+        <tr>
+        <th scope="col">Club's name</th>
+        <th scope="col">Club's country</th>
+        <th scope="col">Club's budget (billions)</th>
+        <th scope="col">Is it European club?</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($clubs as $club) { ?>
+            <tr>
+        <td><?= $club->name ?> </td>
+        <td><?= $club->country ?> </td>
+        <td><?= $club->budget ?> </td>
+        <td><?= ($club->isEuropean) ? 'Yes' : 'No' ?> </td>
+        <td> <button class="btn btn-warning" type="submit" >Update</button></td>
+        <td> <button class="btn btn-danger" type="submit" >Delete</button></td>
+      <?php  } ?>
+        
+    
+        </tr>
+    </tbody>
 </table></div>
+  
+</div>
 
 
 
