@@ -9,6 +9,7 @@ class Club {
     
 
     public function __construct($id = null ,$name = null, $country = null , $budget = null, $isEuropean = null){
+        $this-> id = $id; 
         $this-> name = $name; 
         $this-> country = $country ;
         $this-> budget = $budget ;
@@ -44,7 +45,7 @@ public static function create(){
 }
 public static function destroy(){
     $db = new DB();
-    $stmt = $db->conn->prepare("DELETE FROM `clubs` WHERE `id`= ?");
+    $stmt = $db->conn->prepare("DELETE FROM `clubs` WHERE `id`=?");
     $stmt->bind_param("i",$_POST['id']);
     $stmt->execute();
  

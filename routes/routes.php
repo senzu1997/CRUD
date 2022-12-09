@@ -14,7 +14,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         ClubController::destroy();
         header("Location:./index.php");
         die;
-        echo "triname";
     }
     if(isset($_POST['update'])) {
         ClubController::update();

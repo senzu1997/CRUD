@@ -62,10 +62,12 @@ include "./routes/routes.php";
         <td><?= $club->budget ?> </td>
         <td><?= ($club->isEuropean) ? 'Yes' : 'No' ?> </td>
         <td> <button class="btn btn-warning" name="update" type="submit" >Update</button></td>
-        <form action="" method="POST">
-          <input type="hidden" name="id" value ="<?= $club->id?>">
-      <td> <button class="btn btn-danger" name="destroy" type="submit" >Delete</button></td>
-
+       
+        <form action="" method="POST">  
+      <td> 
+      <input type="hidden" name="id" value ="<?= $club->id?>">
+        <button class="btn btn-danger" name="destroy" type="submit" >Delete</button>
+    </td>
         </form>
       <?php  } ?>
         
