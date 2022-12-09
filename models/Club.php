@@ -42,6 +42,15 @@ public static function create(){
    $db->conn->close();
    
 }
+public static function destroy(){
+    $db = new DB();
+    $stmt = $db->conn->prepare("DELETE FROM `clubs` WHERE `id`=?");
+    $stmt->bind_param("i",$_POST['id']);
+    $stmt->execute();
+ 
+    $stmt->close();
+    $db->conn->close(); 
+}
 
 
 

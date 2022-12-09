@@ -10,6 +10,10 @@ class ClubController{
     public static function store(){
       Club::create(); 
     }
+    public static function destroy(){
+      Club::destroy($_POST['id']); 
+    }
+    
 
 
 }
