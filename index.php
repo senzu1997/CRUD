@@ -31,10 +31,15 @@ include "./routes/routes.php";
     <input type="number" class="form-control" placeholder = "Example : 1.0"  name="budget" value= "<?= (isset($_GET['edit'])) ? $club->budget : "" ?>">
   </div>
   <div class="mb-4">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1"name = "fromEurope">
+    <input type="checkbox" <?=$checked ?>  class="form-check-input" id="exampleCheck1"name = "fromEurope">
     <label class="form-check-label" for="exampleCheck1">Is it from Europe?</label>
   </div>
+  <?php if(isset($_GET['edit'])){?>
+    <input type="hidden" name="id" value = <?=$club->id?>>
+    <button type="submit" name="edit" class="btn btn-success">Update</button>
+  <?php }else{ ?>
   <button type="submit" name="save" class="btn btn-primary">Submit</button>
+  <?php } ?>
     </div>
  
 </form>
@@ -66,7 +71,6 @@ include "./routes/routes.php";
       <td> <button class="btn btn-warning" name="edit" type="submit" >Update</button></td>
     </td>
         
-       
         <form action="" method="POST">  
       <td> 
       <input type="hidden" name="id" value ="<?= $club->id?>">

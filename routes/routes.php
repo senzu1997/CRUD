@@ -23,11 +23,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
 }
+$checked = "";
 if($_SERVER['REQUEST_METHOD'] == "GET"){
     if(isset($_GET['edit'])) {
         $club = ClubController::show();
-        echo "paimame viena objekta";
+        if($club->isEuropean){
+            $checked = "checked";
+        }
     }
+    
+    
 }
 
 $clubs = ClubController::index();
