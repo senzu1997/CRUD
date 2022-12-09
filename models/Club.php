@@ -52,6 +52,21 @@ public static function destroy(){
     $stmt->close();
     $db->conn->close(); 
 }
+public static function find($id){
+    $clubs = new Club();
+    $db = new DB();
+    $stmt = $db->conn->prepare("SELECT * FROM `clubs` WHERE `id` = ?");
+    $stmt->bind_param("i",$id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    while($row= $result->fetch_assoc()){
+        $club = new Club($row['id'],$row['name'],$row['country'],$row['budget'],$row['from_europe']);
+    }
+    $db->conn->close();
+    $stmt->close();
+    return $club;
+}
 
 
 

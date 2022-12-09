@@ -7,6 +7,10 @@ class ClubController{
         $clubs = Club::all();
         return $clubs;
     }
+    public static function show(){
+        $clubs = Club::find($_GET['id']);
+        return $clubs;
+    }
     public static function store(){
       Club::create(); 
     }

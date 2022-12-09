@@ -1,6 +1,5 @@
 <?php
 include "./routes/routes.php";
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,15 +20,15 @@ include "./routes/routes.php";
     <div class="col-7">
     <div class="mb-3">
     <label>The name of the club</label>
-    <input type="text" class="form-control" placeholder = "Example : Real Madrid" name = "name"  >
+    <input type="text" class="form-control" placeholder = "Example : Real Madrid" name = "name" value= "<?= (isset($_GET['edit'])) ? $club->name : "" ?>">
   </div>
   <div class="mb-3">
     <label >The country of the club</label>
-    <input type="text" class="form-control" placeholder = "Example : Spain" name = "country">
+    <input type="text" class="form-control" placeholder = "Example : Spain" name = "country" value= "<?= (isset($_GET['edit'])) ? $club->country : ""  ?>"> 
   </div>
   <div class="mb-3">
     <label >The budget of the club</label>
-    <input type="number" class="form-control" placeholder = "Example : 1.0"  name="budget">
+    <input type="number" class="form-control" placeholder = "Example : 1.0"  name="budget" value= "<?= (isset($_GET['edit'])) ? $club->budget : "" ?>">
   </div>
   <div class="mb-4">
     <input type="checkbox" class="form-check-input" id="exampleCheck1"name = "fromEurope">
@@ -61,7 +60,12 @@ include "./routes/routes.php";
         <td><?= $club->country ?> </td>
         <td><?= $club->budget ?> </td>
         <td><?= ($club->isEuropean) ? 'Yes' : 'No' ?> </td>
-        <td> <button class="btn btn-warning" name="update" type="submit" >Update</button></td>
+        <form action="" method="GET">  
+      <td> 
+      <input type="hidden" name="id" value ="<?= $club->id?>">
+      <td> <button class="btn btn-warning" name="edit" type="submit" >Update</button></td>
+    </td>
+        
        
         <form action="" method="POST">  
       <td> 
