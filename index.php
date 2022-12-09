@@ -10,6 +10,7 @@ include "./routes/routes.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUDAS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/style.css">
   </head>
   <body>
 </head>
@@ -31,17 +32,17 @@ include "./routes/routes.php";
     <input type="number" class="form-control" placeholder = "Example : 1.0"  name="budget">
   </div>
   <div class="mb-4">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1" name = "isEuropean">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1"name = "fromEurope">
     <label class="form-check-label" for="exampleCheck1">Is it from Europe?</label>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" name="save" class="btn btn-primary">Submit</button>
     </div>
  
 </form>
 
 
 
-    <div class="col-10">  
+    <div class="col-10 mt-4">  
     <table class="table table-dark">
     <thead>
         <tr>
@@ -60,8 +61,11 @@ include "./routes/routes.php";
         <td><?= $club->country ?> </td>
         <td><?= $club->budget ?> </td>
         <td><?= ($club->isEuropean) ? 'Yes' : 'No' ?> </td>
-        <td> <button class="btn btn-warning" type="submit" >Update</button></td>
-        <td> <button class="btn btn-danger" type="submit" >Delete</button></td>
+        <td> <button class="btn btn-warning" name="update" type="submit" >Update</button></td>
+        <form action="" method="POST">
+        <td> <button class="btn btn-danger" name="destroy" type="submit" >Delete</button></td>
+
+        </form>
       <?php  } ?>
         
     

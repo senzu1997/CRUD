@@ -30,6 +30,19 @@ public static function all(){
     return $clubs;
 }
 
+public static function create(){
+    print_r($_POST);
+   $db = new DB();
+   $fromEurope = (isset($_POST['fromEurope'])) ? "1" : "0";
+   $stmt = $db->conn->prepare("INSERT INTO `clubs`(`id`, `name`, `country`, `budget`, `from_europe`) VALUES (null,?,?,?,?)");
+   $stmt->bind_param("ssdi",$_POST['name'],$_POST['country'],$_POST['budget'],$fromEurope);
+   $stmt->execute();
+
+   $stmt->close();
+   $db->conn->close();
+   
+}
+
 
 
 

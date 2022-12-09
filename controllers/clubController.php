@@ -7,6 +7,9 @@ class ClubController{
         $clubs = Club::all();
         return $clubs;
     }
+    public static function store(){
+      Club::create(); 
+    }
 
 
 }
