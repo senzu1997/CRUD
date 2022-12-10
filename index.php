@@ -66,7 +66,7 @@ include "./routes/routes.php";
         <td><?= $club->budget ?> </td>
         <td><?= ($club->isEuropean) ? 'Yes' : 'No' ?> </td>
         <form action="" method="GET">  
-      <td> 
+     
       <input type="hidden" name="id" value ="<?= $club->id?>">
       <td> <button class="btn btn-warning" name="edit" type="submit" >Update</button></td>
     </td>
