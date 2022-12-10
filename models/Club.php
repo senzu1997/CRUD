@@ -47,7 +47,7 @@ public function update(){
     $db = new DB();
     // $fromEurope = (isset($_POST['fromEurope'])) ? "1" : "0";
     $stmt = $db->conn->prepare("UPDATE `clubs` SET `name`=?,`country`=?,`budget`=?,`from_europe`=? WHERE `id`=?");
-    $stmt->bind_param("ssdi",$this->name , $this->country, $this->budget,$this->isEuropean,$this->id);
+    $stmt->bind_param("ssdii",$this->name , $this->country, $this->budget,$this->isEuropean,$this->id);
     $stmt->execute();
     $stmt->close();
     $db->conn->close(); 

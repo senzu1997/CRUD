@@ -36,7 +36,7 @@ include "./routes/routes.php";
   </div>
   <?php if(isset($_GET['edit'])){?>
     <input type="hidden" name="id" value = <?=$club->id?>>
-    <button type="submit" name="edit" class="btn btn-success">Update</button>
+    <button type="submit" name="update" class="btn btn-success">Update</button>
   <?php }else{ ?>
   <button type="submit" name="save" class="btn btn-primary">Submit</button>
   <?php } ?>
@@ -70,7 +70,7 @@ include "./routes/routes.php";
       <input type="hidden" name="id" value ="<?= $club->id?>">
       <td> <button class="btn btn-warning" name="edit" type="submit" >Update</button></td>
     </td>
-        
+        </form>
         <form action="" method="POST">  
       <td> 
       <input type="hidden" name="id" value ="<?= $club->id?>">
