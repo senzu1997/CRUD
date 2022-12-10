@@ -14,6 +14,16 @@ class ClubController{
     public static function store(){
       Club::create(); 
     }
+    public static function update(){
+      $fromEurope = (isset($_POST['fromEurope'])) ? "1" : "0";
+     $club = new Club();
+     $club->id = $_POST['id'];
+     $club->name = $_POST['name'];
+     $club->country = $_POST['country'];
+     $club->budget = $_POST['budget'];
+     $club->isEuropean = $fromEurope;
+     $present->update();
+    }
     public static function destroy(){
       Club::destroy($_POST['id']); 
     }
